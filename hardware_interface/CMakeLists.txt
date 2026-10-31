@@ -71,6 +71,9 @@ if(BUILD_TESTING)
   find_package(ament_cmake_gmock REQUIRED)
   find_package(ros2_control_test_assets REQUIRED)
 
+  ament_add_gmock(test_statistics_types test/test_statistics_types.cpp)
+  target_link_libraries(test_statistics_types hardware_interface)
+
   ament_add_gmock(test_macros test/test_macros.cpp)
   target_include_directories(test_macros PRIVATE include)
   target_link_libraries(test_macros rcpputils::rcpputils)
